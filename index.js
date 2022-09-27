@@ -1,4 +1,4 @@
-const rules = {
+module.exports = {
     'plugins': [
         'react',
         'testing-library',
@@ -191,8 +191,4 @@ const rules = {
             },
         ],
     },
-};
-
-module.exports = {
-    rules: rules,
 };
