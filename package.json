@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "ESLint config used in projects by binaryButterfly",
   "main": "index.js",
+  "private": false,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/binary-butterfly/eslint-config.git"
