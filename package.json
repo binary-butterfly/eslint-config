@@ -4,6 +4,9 @@
   "description": "ESLint config used in projects by binaryButterfly",
   "main": "index.js",
   "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/binary-butterfly/eslint-config.git"
