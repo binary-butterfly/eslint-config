@@ -19,6 +19,11 @@ module.exports = {
         'node': true,
     },
     'rules': {
+        'testing-library/no-render-in-setup': 'off',
+        'testing-library/no-node-access': 'off',
+        'testing-library/render-result-naming-convention': 'off',
+        'testing-library/prefer-query-by-disappearance': 'off',
+        'testing-library/prefer-screen-queries': 'off',
         'react/jsx-key': 'off',
         'react/prop-types': 'off',
         'no-extra-boolean-cast': 'off',
