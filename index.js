@@ -125,6 +125,8 @@ module.exports = {
         'max-len': [
             'warn',
             {
+                'ignoreComments': true,
+                'ignoreStrings': true,
                 'code': 140,
             },
         ],
