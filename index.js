@@ -198,4 +198,23 @@ module.exports = {
             },
         ],
     },
+    'overrides': [
+        {
+            'files': ['*.ts', '*.tsx', '*.mts'],
+            'rules': {
+                'no-undef': 'off',
+                'no-unused-vars': 'off',
+                '@typescript-eslint/no-unused-vars': [
+                    'warn',
+                    {
+                        'varsIgnorePattern': '^React$',
+                    },
+                ],
+            },
+            'plugins': [
+                '@typescript-eslint',
+            ],
+            'parser': '@typescript-eslint/parser',
+        },
+    ],
 };
