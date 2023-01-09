@@ -204,12 +204,14 @@ module.exports = {
             'rules': {
                 'no-undef': 'off',
                 'no-unused-vars': 'off',
+                'no-shadow': 'off',
                 '@typescript-eslint/no-unused-vars': [
                     'warn',
                     {
                         'varsIgnorePattern': '^React$',
                     },
                 ],
+                '@typescript-eslint/no-shadow': 'warn',
             },
             'plugins': [
                 '@typescript-eslint',
