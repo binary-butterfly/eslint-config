@@ -19,6 +19,7 @@ module.exports = {
         'node': true,
     },
     'rules': {
+        'use-effect-no-deps/use-effect-no-deps': 'warn',
         'testing-library/no-render-in-setup': 'off',
         'testing-library/no-node-access': 'off',
         'testing-library/render-result-naming-convention': 'off',
