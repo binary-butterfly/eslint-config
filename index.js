@@ -2,6 +2,7 @@ module.exports = {
     'plugins': [
         'react',
         'testing-library',
+        'deprecation'
     ],
     'extends': [
         'eslint:recommended',
@@ -197,6 +198,9 @@ module.exports = {
                 'after': true,
                 'before': false,
             },
+        ],
+        'deprecation/deprecation': [
+            'warn'
         ],
     },
     'overrides': [
