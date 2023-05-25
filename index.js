@@ -2,6 +2,7 @@ module.exports = {
     'plugins': [
         'react',
         'testing-library',
+        'use-effect-no-deps',
         'deprecation'
     ],
     'extends': [
