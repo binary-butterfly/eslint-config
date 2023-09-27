@@ -3,7 +3,8 @@ module.exports = {
         'react',
         'testing-library',
         'use-effect-no-deps',
-        'deprecation'
+        'deprecation',
+        '@binary-butterfly/eslint-plugin-no-new-comparisons',
     ],
     'extends': [
         'eslint:recommended',
@@ -21,6 +22,7 @@ module.exports = {
         'node': true,
     },
     'rules': {
+        '@binary-butterfly/no-new-comparisons/no-new-array-or-object-comparisons': 'error',
         'use-effect-no-deps/use-effect-no-deps': 'warn',
         'testing-library/no-render-in-setup': 'off',
         'testing-library/no-node-access': 'off',
@@ -201,7 +203,7 @@ module.exports = {
             },
         ],
         'deprecation/deprecation': [
-            'warn'
+            'warn',
         ],
     },
     'overrides': [
