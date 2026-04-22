@@ -18,4 +18,10 @@ jobs:
           node-version: 24
           cache: 'npm'
       - run: npm ci
-      - run: npm publish
+      - name: Publish to npm
+        run: |
+          if [[ "${{ github.event.release.prerelease }}" == "true" ]]; then
+            npm publish --tag next
+          else
+            npm publish
+          fi
