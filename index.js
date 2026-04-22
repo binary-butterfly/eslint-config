@@ -143,7 +143,6 @@ export default defineConfig([{
             'before': false,
         }],
 
-        'deprecation/deprecation': ['warn'],
     },
 }, {
     files: ['**/*.ts', '**/*.tsx', '**/*.mts'],
