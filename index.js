@@ -1,19 +1,19 @@
-const {
+import {
     defineConfig,
-} = require("eslint/config");
+} from 'eslint/config';
 
-const react = require("eslint-plugin-react");
-const useEffectNoDeps = require("eslint-plugin-use-effect-no-deps");
-const binaryButterflyEslintPluginNoNewComparisons = require("@binary-butterfly/eslint-plugin-no-new-comparisons");
-const babelParser = require("@babel/eslint-parser");
-const globals = require("globals");
-const typescriptEslint = require("@typescript-eslint/eslint-plugin");
-const tsParser = require("@typescript-eslint/parser");
-const js = require("@eslint/js");
+import react from 'eslint-plugin-react';
+import useEffectNoDeps from 'eslint-plugin-use-effect-no-deps';
+import binaryButterflyEslintPluginNoNewComparisons from '@binary-butterfly/eslint-plugin-no-new-comparisons';
+import babelParser from '@babel/eslint-parser';
+import globals from 'globals';
+import typescriptEslint from '@typescript-eslint/eslint-plugin';
+import tsParser from '@typescript-eslint/parser';
+import js from '@eslint/js';
 
-const {
+import {
     FlatCompat,
-} = require("@eslint/eslintrc");
+} from '@eslint/eslintrc';
 
 const compat = new FlatCompat({
     baseDirectory: __dirname,
@@ -21,7 +21,7 @@ const compat = new FlatCompat({
     allConfig: js.configs.all
 });
 
-module.exports = defineConfig([{
+export default defineConfig([{
     plugins: {
         react,
         "use-effect-no-deps": useEffectNoDeps,
