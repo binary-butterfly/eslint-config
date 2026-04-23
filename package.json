@@ -1,6 +1,6 @@
 {
   "name": "@binary-butterfly/eslint-config",
-  "version": "1.0.0-rc4",
+  "version": "1.0.0-rc5",
   "description": "ESLint config used in projects by binaryButterfly",
   "main": "index.mjs",
   "private": false,
