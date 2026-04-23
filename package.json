@@ -4,6 +4,7 @@
   "description": "ESLint config used in projects by binaryButterfly",
   "main": "index.mjs",
   "private": false,
+  "type": "module",
   "publishConfig": {
     "access": "public"
   },
