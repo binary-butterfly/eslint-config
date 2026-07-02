@@ -8,6 +8,7 @@ import globals from 'globals';
 import typescriptEslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
 import js from '@eslint/js';
+import reactHooks from 'eslint-plugin-react-hooks';
 
 import {FlatCompat} from '@eslint/eslintrc';
 
@@ -16,154 +17,156 @@ const compat = new FlatCompat({
     allConfig: js.configs.all,
 });
 
-export default defineConfig([{
-    plugins: {
-        react,
-        'use-effect-no-deps': useEffectNoDeps,
-        '@binary-butterfly/no-new-comparisons': binaryButterflyEslintPluginNoNewComparisons,
-    },
-
-    extends: compat.extends(
-        'eslint:recommended',
-        'plugin:react/recommended',
-    ),
-
-    languageOptions: {
-        parser: babelParser,
-        'sourceType': 'module',
-        parserOptions: {},
-
-        globals: {
-            ...globals.browser,
-            ...globals.node,
+export default defineConfig([
+    reactHooks.configs.flat.recommended,
+    {
+        plugins: {
+            react,
+            'use-effect-no-deps': useEffectNoDeps,
+            '@binary-butterfly/no-new-comparisons': binaryButterflyEslintPluginNoNewComparisons,
         },
-    },
 
-    'rules': {
-        '@binary-butterfly/no-new-comparisons/no-new-array-or-object-comparisons': 'error',
-        'use-effect-no-deps/use-effect-no-deps': 'warn',
-        'testing-library/no-render-in-setup': 'off',
-        'testing-library/no-node-access': 'off',
-        'testing-library/render-result-naming-convention': 'off',
-        'testing-library/prefer-query-by-disappearance': 'off',
-        'testing-library/prefer-screen-queries': 'off',
-        'react/jsx-key': 'off',
-        'react/prop-types': 'off',
-        'no-extra-boolean-cast': 'off',
-        'no-prototype-builtins': 'off',
+        extends: compat.extends(
+            'eslint:recommended',
+            'plugin:react/recommended',
+        ),
 
-        'no-unused-vars': ['warn', {
-            'varsIgnorePattern': '^React$',
-        }],
+        languageOptions: {
+            parser: babelParser,
+            'sourceType': 'module',
+            parserOptions: {},
 
-        'no-shadow': ['warn'],
-        'no-unneeded-ternary': ['warn'],
-        'no-var': ['warn'],
-        'prefer-const': ['warn'],
-        'array-bracket-newline': ['warn', 'consistent'],
+            globals: {
+                ...globals.browser,
+                ...globals.node,
+            },
+        },
 
-        'arrow-parens': ['warn', 'as-needed', {
-            'requireForBlockBody': true,
-        }],
+        'rules': {
+            '@binary-butterfly/no-new-comparisons/no-new-array-or-object-comparisons': 'error',
+            'use-effect-no-deps/use-effect-no-deps': 'warn',
+            'testing-library/no-render-in-setup': 'off',
+            'testing-library/no-node-access': 'off',
+            'testing-library/render-result-naming-convention': 'off',
+            'testing-library/prefer-query-by-disappearance': 'off',
+            'testing-library/prefer-screen-queries': 'off',
+            'react/jsx-key': 'off',
+            'react/prop-types': 'off',
+            'no-extra-boolean-cast': 'off',
+            'no-prototype-builtins': 'off',
 
-        'comma-dangle': ['warn', 'always-multiline'],
-        'comma-style': ['warn', 'last'],
-        'linebreak-style': ['error', 'unix'],
-        'eol-last': ['error', 'always'],
-        'no-trailing-spaces': ['warn'],
+            'no-unused-vars': ['warn', {
+                'varsIgnorePattern': '^React$',
+            }],
 
-        'comma-spacing': ['warn', {
-            'before': false,
-            'after': true,
-        }],
+            'no-shadow': ['warn'],
+            'no-unneeded-ternary': ['warn'],
+            'no-var': ['warn'],
+            'prefer-const': ['warn'],
+            'array-bracket-newline': ['warn', 'consistent'],
 
-        'arrow-spacing': ['warn', {
-            'before': true,
-            'after': true,
-        }],
+            'arrow-parens': ['warn', 'as-needed', {
+                'requireForBlockBody': true,
+            }],
 
-        'no-multiple-empty-lines': ['warn', {
-            'max': 2,
-            'maxEOF': 1,
-            'maxBOF': 0,
-        }],
+            'comma-dangle': ['warn', 'always-multiline'],
+            'comma-style': ['warn', 'last'],
+            'linebreak-style': ['error', 'unix'],
+            'eol-last': ['error', 'always'],
+            'no-trailing-spaces': ['warn'],
 
-        'func-call-spacing': ['warn', 'never'],
-        'function-call-argument-newline': ['warn', 'consistent'],
-        'function-paren-newline': ['warn', 'consistent'],
+            'comma-spacing': ['warn', {
+                'before': false,
+                'after': true,
+            }],
 
-        'key-spacing': ['warn', {
-            'beforeColon': false,
-            'afterColon': true,
-            'mode': 'strict',
-        }],
+            'arrow-spacing': ['warn', {
+                'before': true,
+                'after': true,
+            }],
 
-        'jsx-quotes': ['warn', 'prefer-double'],
+            'no-multiple-empty-lines': ['warn', {
+                'max': 2,
+                'maxEOF': 1,
+                'maxBOF': 0,
+            }],
 
-        'max-len': ['warn', {
-            'ignoreComments': true,
-            'ignoreStrings': true,
-            'code': 140,
-        }],
+            'func-call-spacing': ['warn', 'never'],
+            'function-call-argument-newline': ['warn', 'consistent'],
+            'function-paren-newline': ['warn', 'consistent'],
 
-        'max-statements-per-line': ['warn', {
-            'max': 1,
-        }],
+            'key-spacing': ['warn', {
+                'beforeColon': false,
+                'afterColon': true,
+                'mode': 'strict',
+            }],
 
-        'new-parens': ['warn', 'always'],
-        'newline-per-chained-call': ['warn'],
-        'no-multi-spaces': ['warn'],
-        'no-tabs': ['error'],
-        'no-mixed-spaces-and-tabs': ['error'],
-        'no-whitespace-before-property': ['warn'],
-        'object-curly-spacing': ['warn', 'never'],
+            'jsx-quotes': ['warn', 'prefer-double'],
 
-        'quotes': ['warn', 'single', {
-            'avoidEscape': true,
-            'allowTemplateLiterals': true,
-        }],
+            'max-len': ['warn', {
+                'ignoreComments': true,
+                'ignoreStrings': true,
+                'code': 140,
+            }],
 
-        'semi': ['warn', 'always'],
+            'max-statements-per-line': ['warn', {
+                'max': 1,
+            }],
 
-        'semi-spacing': ['warn', {
-            'before': false,
-            'after': true,
-        }],
+            'new-parens': ['warn', 'always'],
+            'newline-per-chained-call': ['warn'],
+            'no-multi-spaces': ['warn'],
+            'no-tabs': ['error'],
+            'no-mixed-spaces-and-tabs': ['error'],
+            'no-whitespace-before-property': ['warn'],
+            'object-curly-spacing': ['warn', 'never'],
 
-        'semi-style': ['warn', 'last'],
+            'quotes': ['warn', 'single', {
+                'avoidEscape': true,
+                'allowTemplateLiterals': true,
+            }],
 
-        'space-before-function-paren': ['warn', {
-            'anonymous': 'always',
-            'named': 'never',
-            'asyncArrow': 'always',
-        }],
+            'semi': ['warn', 'always'],
 
-        'switch-colon-spacing': ['warn', {
-            'after': true,
-            'before': false,
-        }],
+            'semi-spacing': ['warn', {
+                'before': false,
+                'after': true,
+            }],
 
-    },
-}, {
-    files: ['**/*.ts', '**/*.tsx', '**/*.mts'],
+            'semi-style': ['warn', 'last'],
 
-    'rules': {
-        'no-undef': 'off',
-        'no-unused-vars': 'off',
-        'no-shadow': 'off',
+            'space-before-function-paren': ['warn', {
+                'anonymous': 'always',
+                'named': 'never',
+                'asyncArrow': 'always',
+            }],
 
-        '@typescript-eslint/no-unused-vars': ['warn', {
-            'varsIgnorePattern': '^React$',
-        }],
+            'switch-colon-spacing': ['warn', {
+                'after': true,
+                'before': false,
+            }],
 
-        '@typescript-eslint/no-shadow': 'warn',
-    },
+        },
+    }, {
+        files: ['**/*.ts', '**/*.tsx', '**/*.mts'],
 
-    plugins: {
-        '@typescript-eslint': typescriptEslint,
-    },
+        'rules': {
+            'no-undef': 'off',
+            'no-unused-vars': 'off',
+            'no-shadow': 'off',
 
-    languageOptions: {
-        parser: tsParser,
-    },
-}]);
+            '@typescript-eslint/no-unused-vars': ['warn', {
+                'varsIgnorePattern': '^React$',
+            }],
+
+            '@typescript-eslint/no-shadow': 'warn',
+        },
+
+        plugins: {
+            '@typescript-eslint': typescriptEslint,
+        },
+
+        languageOptions: {
+            parser: tsParser,
+        },
+    }]);
